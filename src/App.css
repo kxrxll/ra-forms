@@ -1,0 +1,67 @@
+.converter {
+  width: 80%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.converter_main {
+  width: 30%;
+  height: 80px;
+  background-color: hotpink;
+}
+
+.converter_input {
+  width: 90%;
+  height: 20px;
+  margin-top: 4px;
+  margin-left: 3.5%;
+}
+
+.converter_result {
+  width: 93%;
+  height: 30px;
+  margin-top: 8px;
+  margin-left: 3.5%;
+  background-color: khaki;
+}
+
+.training {
+  width: 80%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.training_main {
+  width: 80%;
+  background-color: hotpink;
+}
+
+.training_input {
+  margin-left: 5%;
+  height: 30px;
+}
+
+.training_submit {
+  margin-left: 5%;
+  width: 50px;
+  height: 30px;
+}
+
+.training_item {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.training_item p {
+  margin-left: 20px;
+}
+
+.training_delete {
+  margin-left: 40px;
+  height: 30px;
+}
