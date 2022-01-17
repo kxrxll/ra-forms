@@ -17,7 +17,6 @@ const Converter = () => {
     if (value.length === 7) {
       setColor(value);
       setContent(hexToRgb(value));
-      evt.target.value = '';
     }
   }
 

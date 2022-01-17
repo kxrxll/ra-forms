@@ -8,16 +8,22 @@ const Training = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    const formData = new FormData(evt.target.closest('form'));
+    const trainingFormData = new FormData(evt.target.closest('form'));
     evt.target.closest('form').reset();
     const pattern =/^([0-9]{2})\.([0-9]{2})\.([0-9]{4})$/;
-    if (pattern.test(formData.get('date'))) {
+    if (pattern.test(trainingFormData.get('date'))) {
       const newTraining = {
         id: nanoid(),
-        date: formData.get('date'),
-        distance: formData.get('distance')
+        date: trainingFormData.get('date'),
+        distance: parseInt(trainingFormData.get('distance'))
       }
-      setFormData(prevForms => [...prevForms, newTraining])
+      const existingTraining = formData.find(item => item.date === newTraining.date);
+      if (existingTraining) {
+        existingTraining.distance += parseInt(newTraining.distance)
+        setFormData(prevForms => [...prevForms])
+      } else {
+        setFormData(prevForms => [...prevForms, newTraining])
+      }
     } else alert('Bad date format! Should be DD.MM.YYYY!')
   }
 
@@ -38,7 +44,7 @@ const Training = () => {
           {
             formData.sort(
               (item1, item2) => {
-                return parseInt(item1.date) - parseInt(item2.date)
+                return parseInt(item2.date) - parseInt(item1.date)
               }
             ).map(
               item => <TrainingItem item={item} key={item.id} removeItem={handleRemove}/>
